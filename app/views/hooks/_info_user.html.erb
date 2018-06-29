@@ -9,12 +9,9 @@
         <% data_user.each do |type| %>
           <li>
               <strong><%=data_book[type['type']]%></strong>
-              (<%=type['from'].present? ? I18n.l(Date.parse(type['from']), format: :long) : 'не указано'%>
-              <% if type['to'].present? %>
-              - <%=I18n.l(Date.parse(type['to']), format: :long) %>)
-              <% else %>
-              по настоящее время)
-              <% end %>
+              (<%=type['from'].present? ? I18n.l(Date.parse(type['from']), format: :long) : 'не указано' %>
+              -
+              <%=type['to'].present? ? I18n.l(Date.parse(type['to']), format: :long) : 'по настоящее время' %>)
           </li>
         <% end %>
     </ul>
