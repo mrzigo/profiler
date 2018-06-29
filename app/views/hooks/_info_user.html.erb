@@ -1,8 +1,9 @@
 <%
   data_user = Setting[PROFILER_SETTINGS_NAME][PROFILER_USER_DATA][@user.id.to_s]
   data_book = Setting[PROFILER_SETTINGS_NAME][PROFILER_USER_TYPES]
-  if data_user.present? and data_user.count > 0 
-%>
+  if data_user.present? and data_user.count > 0
+    data_user = data_user.sort_by{|type| Date.parse(type['from'])}.reverse
+    %>
 
     <h3>Уровень специалиста</h3>
     <ul>
